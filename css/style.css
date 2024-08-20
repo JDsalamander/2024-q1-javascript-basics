@@ -11,8 +11,8 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: blueviolet;
-	color: aquamarine;
+	background-color: rgb(43, 202, 226);
+	color: rgba(66, 235, 23, 0.912);
 }
 
 #game-canvas {
