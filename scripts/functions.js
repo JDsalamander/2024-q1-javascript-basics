@@ -14,6 +14,15 @@ sayHi(firstName, 19)
 
 
 
+function multiply(a, b) {
+    let answer = a * b;
+    return answer;
+}
+
+console.log (multiply(10927459873498570, 50027345973409750));
+
+
+
 function add(a, b) {
     let answer = a + b;
     return answer;
