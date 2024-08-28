@@ -1,15 +1,21 @@
 //@ts-check
 
-let firstName = "Declan";
+//functions can't be called untill declared.
 
-let sayHi = function (f, a) {
-    let firstName = f;
-    let age = a;
+
+
+
+
+let sayHi = function (firstName = "Captain No Name", age = 100000000) {
     let greeting = `Hello! My name is ${firstName} and I am ${age} years old`;
     console.log(greeting);
 };
 
-sayHi("John", 53)
+// call with different parameters
+sayHi();
+// call with default age
+sayHi("Declan", 53)
+firstName = "John"
 sayHi(firstName, 19)
 
 
@@ -22,6 +28,8 @@ function multiply(a, b) {
 console.log (multiply(10927459873498570, 50027345973409750));
 
 
+//add can be called before it is defined because it is hoisted to the global scope
+add(1, 2);
 
 function add(a, b) {
     let answer = a + b;
@@ -67,6 +75,6 @@ function wearBarneyShirt(person) {
 }
 
 
-console.log (person);
-console.log (wearBarneyShirt);
-console.log (person);
+console.log(person);
+wearBarneyShirt(person);
+console.log(person);
