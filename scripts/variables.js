@@ -48,3 +48,18 @@ myPet.color = "Dark Green";
 myPet.Color = "green";
 
 console.log("myPet looks like this", myPet);
+
+
+// arrays are fun!
+// arrats are lists of data
+let favCandies = [
+    "War Heads",
+    "Black Licorice",
+    "Skittles",
+    "Gum",
+];
+
+
+console.log("my fav candies are:", favCandies);
+// arrays start counting from zero
+console.log("my fav candies at index 2 is:", favCandies[2]);
