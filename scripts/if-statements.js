@@ -2,7 +2,7 @@
 
 let iq = 150
 
-if (iq) {
+if (iq > 299) {
     console.log("Let into Ivy leauge")
 } else {
     console.log("Your rejected by society")
