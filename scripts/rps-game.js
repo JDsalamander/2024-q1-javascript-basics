@@ -2,6 +2,7 @@
 
 let playerControls = document.getElementById("player-controls");
 
+let isGameOver = false
 let weapons = [
     {
         type: "Boulder",
@@ -22,10 +23,34 @@ function pickRandomWeapon(weapons) {
     return weapons[rnJesus];
 }
 
+function determineOutcome(playerWeapon, computerWeapon) {
+    if (playerWeapon.type === computerWeapon.type) {
+        return "It's a tie! try again"
+    }
+    
+    if(playerWeapon.beats === computerWeapon.type) {
+        isGameOver = true
+        return `Plater winz! ${playerWeapon.type} beats ${computerWeapon.type}`;
+    }
+    isGameOver = true
+    return `Computer winz! ${computerWeapon.type} beats ${playerWeapon.type}`
+}
 
 function playerControlHandler(e) {
+    if(isGameOver) {
+        return;
+    }
+
     let weaponName = e.target.innerText;
-    console.log( weaponName, "was selected");
+    let playerWeapon = weapons.find(w => w.type === weaponName);
+
+    if(!playerWeapon) {
+        console.log("ERROR! Player Weapon undifined")
+    }
+    let computerWeapon = pickRandomWeapon(weapons);
+    let result = determineOutcome(playerWeapon, computerWeapon);
+
+    console.log(result);
 }
 
 playerControls?.addEventListener("click", playerControlHandler);
