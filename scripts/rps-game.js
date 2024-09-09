@@ -30,7 +30,7 @@ function determineOutcome(playerWeapon, computerWeapon) {
     
     if(playerWeapon.beats === computerWeapon.type) {
         isGameOver = true
-        return `Plater winz! ${playerWeapon.type} beats ${computerWeapon.type}`;
+        return `Player winz! ${playerWeapon.type} beats ${computerWeapon.type}`;
     }
     isGameOver = true
     return `Computer winz! ${computerWeapon.type} beats ${playerWeapon.type}`
