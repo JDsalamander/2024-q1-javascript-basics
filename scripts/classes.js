@@ -1,5 +1,6 @@
 //@ts-check
 
+
 class CheeseClass {
     constructor(type,) {
         this.type = type;
