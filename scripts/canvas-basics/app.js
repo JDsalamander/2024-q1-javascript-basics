@@ -8,36 +8,90 @@ const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 
 
-ctx.fillRect(50,0,50,100);
-ctx.fillRect(75,25,50,100);
-ctx.fillRect(100,50,50,100);
-ctx.fillRect(125,75,50,100);
-ctx.fillRect(150,100,50,100);
-ctx.fillRect(175,125,50,100);
-ctx.fillRect(200,150,50,100);
-ctx.fillRect(225,175,50,100);
-ctx.fillRect(250,200,50,100);
-ctx.fillRect(275,225,50,100);
-ctx.fillRect(300,250,50,100);
-ctx.fillRect(325,275,50,100);
-ctx.fillRect(350,300,50,100);
-ctx.fillRect(375,325,50,100);
-ctx.fillRect(400,350,50,100);
-ctx.fillRect(425,375,50,100);
-ctx.fillRect(450,400,50,100);
-ctx.fillRect(475,425,50,100);
-ctx.fillRect(500,450,50,100);
-ctx.fillRect(525,475,50,100);
-ctx.fillRect(550,500,50,100);
-ctx.fillRect(575,525,50,100);
-ctx.fillRect(600,550,50,100);
-ctx.fillRect(625,575,50,100);
-ctx.fillRect(650,600,50,100);
-ctx.fillRect(675,625,50,100);
-ctx.fillRect(700,650,50,100);
-ctx.fillRect(725,675,50,100);
-ctx.fillRect(750,700,50,100);
-ctx.fillRect(775,725,50,100);
-ctx.beginPath();
-ctx.arc(500, 100, 50, 0, Math.PI * 2);
-ctx.fill();
+
+
+
+let lastTime = 0;
+let hue = 0;
+let outlineHue = 100;
+let x1 = 0;
+let y1 = 0;
+let speed = 10;
+
+function drawLoop (timestamp) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let elaspedTime = timestamp - lastTime;
+    lastTime = timestamp;
+
+    ctx.fillStyle= `hsla(${hue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 1000, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 1000, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 950, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 900, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 850, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 800, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 750, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 700, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 650, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 600, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 550, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 500, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 450, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 400, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 350, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 300, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 250, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 200, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 150, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 100, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
+    ctx.arc(x1, y1, 50, 0, Math.PI * 2);
+    ctx.stroke();
+    hue += 3;
+    outlineHue += 3;
+    x1 += speed
+    y1 += speed
+
+    window.requestAnimationFrame(drawLoop);
+}
+
+window.requestAnimationFrame(drawLoop);
