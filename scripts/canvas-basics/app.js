@@ -7,89 +7,44 @@ const canvas = document.getElementById("game-canvas");
 //@ts-ignore canvas is an HTMLCanvasElement
 const ctx = canvas.getContext("2d");
 
+class SquareShape {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
 
+        this.width = 50;
+        this.height = this.width;
+        this.hue = 0;
 
+        this.speedMult = 11;
+        this.speedX = Math.floor(Math.random() * this.speedMult) + 1;
+        this.speedY = Math.floor(Math.random() * this.speedMult) + 1;
+    
+    }
+     update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.hue++;
+     }
 
+     draw() {
+        ctx.fillStyle= `hsla(${this.hue}, 100%, 50%, 100%)`;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+     }
+}
+
+let s1 = new SquareShape(0, 0);
 
 let lastTime = 0;
-let hue = 0;
-let outlineHue = 100;
-let x1 = 0;
-let y1 = 0;
-let speed = 10;
+
 
 function drawLoop (timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let elaspedTime = timestamp - lastTime;
     lastTime = timestamp;
 
-    ctx.fillStyle= `hsla(${hue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 1000, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 1000, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 950, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 900, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 850, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 800, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 750, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 700, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 650, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 600, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 550, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 500, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 450, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 400, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 350, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 300, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 250, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 200, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 150, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 100, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle= `hsla(${outlineHue}, 100%, 50%, 100%)`;
-    ctx.arc(x1, y1, 50, 0, Math.PI * 2);
-    ctx.stroke();
-    hue += 3;
-    outlineHue += 3;
-    x1 += speed
-    y1 += speed
+    s1.draw();
+    s1.update();
 
     window.requestAnimationFrame(drawLoop);
 }
