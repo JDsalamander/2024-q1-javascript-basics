@@ -1,7 +1,7 @@
 //@ts-check
 
 import { SquareShape } from "./shapes/square.js";
-
+import { CircleShape } from "./shapes/circle.js";
 /** @type {HTMLCanvasElement} */
 //@ts-ignore canvas is an HTMLCanvasElement
 const canvas = document.getElementById("game-canvas");
@@ -10,13 +10,27 @@ const canvas = document.getElementById("game-canvas");
 //@ts-ignore canvas is an HTMLCanvasElement
 const ctx = canvas.getContext("2d");
 
-let s1 = new SquareShape(0, 0, ctx, canvas);
+
 
 let shapes = [];
 
-for (let i = 0; i < 100000; i++) {
-    shapes.push(new SquareShape(0, 0, ctx, canvas));
+let spawnSquareX = 0;
+let spawnSquareY = 0;
+let spawnCircleX = 0;
+let spawnCircleY = 0;
+
+let SpawnPlaceChangerX = canvas.width;
+let SpawnPlaceChangerY = canvas.height;
+spawnSquareX = Math.floor(Math.random() * SpawnPlaceChangerX) ;
+spawnSquareY = Math.floor(Math.random() * SpawnPlaceChangerY) ;
+spawnCircleX = Math.floor(Math.random() * SpawnPlaceChangerX) ;
+spawnCircleY = Math.floor(Math.random() * SpawnPlaceChangerY) ;       
+
+for (let i = 0; i < 1000; i++) {
+    shapes.push(new SquareShape(spawnSquareX, spawnSquareY, ctx, canvas));
+    shapes.push(new CircleShape(spawnCircleX, spawnCircleY, ctx, canvas))
 };
+let s1 = new SquareShape(spawnSquareX, spawnCircleY, ctx, canvas);
 
 let lastTime = 0;
 

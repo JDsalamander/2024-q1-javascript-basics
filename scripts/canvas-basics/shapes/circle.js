@@ -1,5 +1,6 @@
 //@ts-check
-export class SquareShape {
+
+export class CircleShape {
     constructor(x, y, ctx, canvas) {
         this.directionX = 1;
         this.directionY = 1;
@@ -10,8 +11,8 @@ export class SquareShape {
         this.x = x;
         this.y = y;
 
-        this.width = 50;
-        this.height = this.width;
+        this.radious = 50;
+        
         this.hue = 0;
         this.opasity = 0;
 
@@ -38,7 +39,7 @@ export class SquareShape {
             //when of screen to the left move right
             this.directionX = 1
             //when of screen to the right move left
-        } else if(this.x + this.width > this.canvas.width) {
+        } else if(this.x + this.radious > this.canvas.width) {
             this.directionX = -1
         }
 
@@ -46,14 +47,15 @@ export class SquareShape {
             //when of screen to the left move right
             this.directionY = 1
             //when of screen to the right move left
-        } else if(this.y + this.height > this.canvas.height) {
+        } else if(this.y + this.radious > this.canvas.height) {
             this.directionY = -1
         }
      }
 
      draw() {
-        this.ctx.fillStyle= `hsla(${this.hue}, 100%, 50%, ${this.opasity}%)`;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        
+        this.ctx.arcStyle= `hsla(${this.hue}, 100%, 50%, ${this.opasity}%)`;
+        this.ctx.fill(this.x, this.y, this.radious, this.radious);
      }
 }
 
